@@ -63,7 +63,9 @@ const fetchChats = expressAsyncHandler(async (req, res) => {
 });
 
 const createGroupChat = expressAsyncHandler(async (req, res) => {
-  
+  if (!req.body.users || !req.body.name) {
+    return res.status(400).send
+  }
 });
 
 module.exports = { accessChat,fetchChats, createGroupChat};
